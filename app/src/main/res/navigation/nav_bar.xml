@@ -20,9 +20,10 @@
         android:name="fr.yanisnumero1.ubiquidtestyanis.ScannedInformation"
         android:label="activity_scanned_information"
         tools:layout="@layout/activity_scanned_information" />
-    <fragment
-        android:id="@+id/settings_fgt"
-        android:name="fr.yanisnumero1.ubiquidtestyanis.BlankFragment"
-        android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
+    <activity
+        android:id="@+id/settingsActivity"
+        android:name="fr.yanisnumero1.ubiquidtestyanis.SettingsActivity"
+        android:label="activity_settings"
+        tools:layout="@layout/activity_settings" />
+
 </navigation>

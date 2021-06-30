@@ -25,14 +25,37 @@ public class MainActivity extends AppCompatActivity {
     private CodeScanner mCodeScanner;
     private CodeScannerView mCodeScannerView;
 
-
+    BottomNavigationView mBottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // navbar implementation
+        mBottomNavigationView=findViewById(R.id.bottom_nav);
+        mBottomNavigationView.setSelectedItemId(R.id.mainActivity);
+        mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+                    case R.id.mainActivity:
+                        return true;
+                    case R.id.homeActivity:
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.settings_fgt:
+                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
 
 
+        // scanning
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA},123 );
         } else{

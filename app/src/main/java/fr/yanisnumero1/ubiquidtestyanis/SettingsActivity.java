@@ -9,17 +9,16 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     BottomNavigationView mBottomNavigationView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_settings);
 
         mBottomNavigationView=findViewById(R.id.bottom_nav);
-        mBottomNavigationView.setSelectedItemId(R.id.homeActivity);
+        mBottomNavigationView.setSelectedItemId(R.id.settings_fgt);
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -30,14 +29,16 @@ public class HomeActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.homeActivity:
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.settings_fgt:
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                        overridePendingTransition(0,0);
+
                         return true;
                 }
                 return false;
             }
         });
+
     }
 }
