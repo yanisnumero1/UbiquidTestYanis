@@ -22,6 +22,14 @@
         app:frameAspectRatioHeight="1"
         app:frameSize="0.75"
         app:frameThickness="7dp"
-        app:maskColor="#A3FFFFFF"/>
+        app:maskColor="#A3FFFFFF">
+
+
+    </com.budiyev.android.codescanner.CodeScannerView>
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:menu="@menu/bottom_nav"
+    android:background="@color/black"/>
 
 </FrameLayout>

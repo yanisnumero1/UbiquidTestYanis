@@ -26,4 +26,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_action_home" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_nav"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="671dp"
+        android:backgroundTint="@color/teal_200"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
