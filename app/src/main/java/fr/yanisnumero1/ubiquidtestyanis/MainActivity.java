@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -45,7 +46,12 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MainActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
+                        String resultat =result.getText();
+                        Intent intent = new Intent(MainActivity.this, ScannedInformation.class);
+                        intent.putExtra("keyResult", resultat);
+                        startActivity(intent);
+
+                        //Toast.makeText(MainActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
