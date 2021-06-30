@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class ScannedInformation extends AppCompatActivity {
 
     private TextView infoScanned;
-    private ImageButton btnHome;
+
     BottomNavigationView mBottomNavigationView;
 
     @Override
@@ -49,19 +49,13 @@ public class ScannedInformation extends AppCompatActivity {
         });
 
         infoScanned= findViewById(R.id.infosScanned);
-        btnHome= findViewById(R.id.btnHome);
+
 
         String result = getIntent().getStringExtra("keyResult");
 
         infoScanned.setText(result);
 
-        btnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ScannedInformation.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
     }
 }

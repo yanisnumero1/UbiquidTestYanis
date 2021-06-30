@@ -33,7 +33,6 @@ public class SettingsActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.settings_fgt:
-
                         return true;
                 }
                 return false;

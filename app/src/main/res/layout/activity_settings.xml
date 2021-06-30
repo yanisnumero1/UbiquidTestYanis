@@ -16,4 +16,13 @@
         tools:layout_editor_absoluteY="612dp"
         app:menu="@menu/bottom_nav"/>
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="279dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
