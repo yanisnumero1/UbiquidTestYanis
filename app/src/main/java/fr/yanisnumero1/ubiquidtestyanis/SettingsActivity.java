@@ -9,7 +9,12 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class SettingsActivity extends AppCompatActivity {
+
+    Timer timer;
 
     BottomNavigationView mBottomNavigationView;
     @Override
@@ -17,6 +22,20 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //timer
+        timer= new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 15000);
+
+
+
+        // navigation bar
         mBottomNavigationView=findViewById(R.id.bottom_nav);
         mBottomNavigationView.setSelectedItemId(R.id.settings_fgt);
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

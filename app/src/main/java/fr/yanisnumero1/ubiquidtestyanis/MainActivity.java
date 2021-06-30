@@ -24,10 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
     private CodeScanner mCodeScanner;
     private CodeScannerView mCodeScannerView;
+    private int codeScanned;
 
     BottomNavigationView mBottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        codeScanned=0;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         String resultat =result.getText();
+                        codeScanned++;
                         Intent intent = new Intent(MainActivity.this, ScannedInformation.class);
                         intent.putExtra("keyResult", resultat);
                         startActivity(intent);
