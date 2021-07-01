@@ -4,6 +4,8 @@
     <string name="info_message">Rendez vous dans réglages pour tester et noter la reconnaissance de flashcode</string>
     <string name="scan_done">Flashcodes uniques décodés:</string>
     <string name="scan_passed">Scans réussis dans le temps imparti :</string>
+    <string name="send_note">Envoyer</string>
+    <string name="user_rating">Notez la session de scan:</string>
     <string name="time">Temps restant</string>
     <string name="start_btn">Demarrer</string>
     <string name="bottom_navigation_menu_home">Acceuil</string>
