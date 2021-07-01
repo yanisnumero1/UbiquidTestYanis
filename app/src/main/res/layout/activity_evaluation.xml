@@ -18,9 +18,9 @@
 
     <com.budiyev.android.codescanner.CodeScannerView
         android:id="@+id/scanner_view"
-        android:layout_width="406dp"
-        android:layout_height="529dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="384dp"
+        android:layout_height="528dp"
+        android:layout_marginTop="4dp"
         app:autoFocusButtonColor="@android:color/holo_blue_dark"
         app:autoFocusButtonVisible="true"
         app:flashButtonColor="@android:color/holo_blue_dark"
@@ -33,8 +33,10 @@
         app:frameSize="0.75"
         app:frameThickness="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:maskColor="#A3FFFFFF"
-        tools:layout_editor_absoluteY="16dp">
+        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maskColor="#A3FFFFFF">
 
     </com.budiyev.android.codescanner.CodeScannerView>
 
@@ -73,10 +75,11 @@
 
     <Button
         android:id="@+id/startEval"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="158dp"
+        android:layout_height="37dp"
         android:text="@string/timer_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timer" />
 
