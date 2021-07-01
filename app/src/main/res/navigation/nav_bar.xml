@@ -24,6 +24,6 @@
         android:id="@+id/settingsActivity"
         android:name="fr.yanisnumero1.ubiquidtestyanis.ResultRateActivity"
         android:label="activity_settings"
-        tools:layout="@layout/activity_settings" />
+        tools:layout="@layout/activity_result_rate" />
 
 </navigation>

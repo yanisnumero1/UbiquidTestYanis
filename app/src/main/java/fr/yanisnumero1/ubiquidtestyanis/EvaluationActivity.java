@@ -56,7 +56,7 @@ public class EvaluationActivity extends AppCompatActivity {
 
         // navbar implementation
         mBottomNavigationView=findViewById(R.id.bottom_nav);
-        mBottomNavigationView.setSelectedItemId(R.id.mainActivity);
+        mBottomNavigationView.setSelectedItemId(R.id.settings_fgt);
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -89,8 +89,13 @@ public class EvaluationActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 chrono.setText("test fini");
-                Toast.makeText(EvaluationActivity.this, "Evaluation terminée", Toast.LENGTH_SHORT).show();
-                // TODO: intent qui renvois à une page d'évaluation étoiles
+                String codeStr= String.valueOf(codeScanned);
+
+                Intent intent = new Intent(EvaluationActivity.this, ResultRateActivity.class);
+                intent.putExtra("codeSent", codeStr);
+                startActivity(intent);
+
+
 
 
             }
@@ -139,14 +144,13 @@ public class EvaluationActivity extends AppCompatActivity {
                         Log.v("Scan", "Un code a été détecté");
 
                         String resultat =result.getText();
-                        System.out.println(resultat);
                         codeScanned++;
                         codeCounted.setText(String.valueOf(codeScanned));
-                        System.out.println("nombre de qr scannés "+codeScanned);
-                        String codeStr= String.valueOf(codeScanned);
-                       // Intent intent = new Intent(EvaluationActivity.this, ScannedInformation.class);
+
+
+
                        // intent.putExtra("keyResult", resultat);
-                       // intent.putExtra("codeSent", codeStr);
+
                         mCodeScanner.startPreview();
                         //startActivity(intent);
 

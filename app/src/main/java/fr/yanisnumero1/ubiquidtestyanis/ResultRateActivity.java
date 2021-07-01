@@ -5,46 +5,34 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ResultRateActivity extends AppCompatActivity {
 
 
-    private Button buttonTest;
+    private TextView resultScan;
 
     BottomNavigationView mBottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_result_rate);
 
-        buttonTest= findViewById(R.id.buttonTest);
+        resultScan=findViewById(R.id.result_received);
 
-        buttonTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.v("Test", "lancement du test d'évaluation");
+        String nbrScan= getIntent().getStringExtra("codeSent");
 
-                Intent intent= new Intent(ResultRateActivity.this, EvaluationActivity.class);
-                //envoyer intent avec clé à true
-                startActivity(intent);
-            }
-        });
+        resultScan.setText(nbrScan);
 
-
-
-
-
-
-        // navigation bar
+        // navbar implementation
         mBottomNavigationView=findViewById(R.id.bottom_nav);
-        mBottomNavigationView.setSelectedItemId(R.id.settings_fgt);
+        mBottomNavigationView.setSelectedItemId(R.id.mainActivity);
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -63,6 +51,16 @@ public class ResultRateActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
+
+
+
+
+
+
+
+
 
 
 
