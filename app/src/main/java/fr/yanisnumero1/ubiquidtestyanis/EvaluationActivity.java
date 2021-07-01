@@ -102,7 +102,7 @@ public class EvaluationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 codeCounted.setText("0");
                 countDownTimer.start();
-                Toast.makeText(EvaluationActivity.this, "demarrage du chrono", Toast.LENGTH_SHORT).show();
+
 
             }
         });
