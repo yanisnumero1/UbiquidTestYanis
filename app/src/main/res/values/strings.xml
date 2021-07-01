@@ -2,6 +2,8 @@
     <string name="app_name">Test technique Ubiquid</string>
     <string name="home_message">Bienvenue dans votre QrCode Scanner</string>
     <string name="scan_done">Scans uniques décodés</string>
+    <string name="time">Temps restant</string>
+    <string name="timer_btn">Demarrer test</string>
     <string name="bottom_navigation_menu_home">Acceuil</string>
     <string name="bottom_navigation_menu_scanner">Scanner</string>
     <string name="bottom_navigation_menu_settings">Réglages</string>

@@ -9,9 +9,11 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,38 +31,33 @@ public class EvaluationActivity extends AppCompatActivity {
     private CodeScanner mCodeScanner;
     private CodeScannerView mCodeScannerView;
     private int codeScanned;
-    private TextView codeCounted;
-    Timer timer;
+    private TextView codeCounted, chrono;
+    private CountDownTimer countDownTimer;
+    private Timer timer;
+    private Button startTest;
 
     BottomNavigationView mBottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-     // timer= new Timer();
-     // timer.schedule(new TimerTask() {
-     //     @Override
-     //     public void run() {
-     //         Log.v("Timer", "Fermeture du scan après 15 secondes");
-     //         Intent intent = new Intent(MainActivity.this, ScannedInformation.class);
-     //         startActivity(intent);
-     //         finish();
-     //     }
-     // }, 15000);
-
-        codeScanned=0;
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluation);
 
+        codeScanned=0;
+
+        chrono=findViewById(R.id.timer);
+        startTest=findViewById(R.id.startEval);
+
+
+
         codeCounted= findViewById(R.id.code_counter);
         codeCounted.setText("");
+
 
         // navbar implementation
         mBottomNavigationView=findViewById(R.id.bottom_nav);
         mBottomNavigationView.setSelectedItemId(R.id.mainActivity);
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -83,6 +80,31 @@ public class EvaluationActivity extends AppCompatActivity {
             }
         });
 
+        // timer
+        countDownTimer=new CountDownTimer(15000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                chrono.setText(millisUntilFinished/1000 + "sec restantes");
+
+            }
+
+            @Override
+            public void onFinish() {
+                chrono.setText("time finish");
+                Toast.makeText(EvaluationActivity.this, "Evaluation terminée", Toast.LENGTH_SHORT).show();
+                // TODO: intent qui renvois à une page d'évaluation étoiles
+
+
+            }
+        };
+        startTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countDownTimer.start();
+                Toast.makeText(EvaluationActivity.this, "demarrage du chrono", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         // scanning
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
