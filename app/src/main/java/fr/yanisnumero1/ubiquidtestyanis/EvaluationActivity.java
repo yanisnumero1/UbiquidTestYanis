@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.budiyev.android.codescanner.CodeScanner;
@@ -28,6 +29,7 @@ public class EvaluationActivity extends AppCompatActivity {
     private CodeScanner mCodeScanner;
     private CodeScannerView mCodeScannerView;
     private int codeScanned;
+    private TextView codeCounted;
     Timer timer;
 
     BottomNavigationView mBottomNavigationView;
@@ -47,8 +49,13 @@ public class EvaluationActivity extends AppCompatActivity {
 
         codeScanned=0;
 
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_evaluation);
+
+        codeCounted= findViewById(R.id.code_counter);
+        codeCounted.setText("");
+
         // navbar implementation
         mBottomNavigationView=findViewById(R.id.bottom_nav);
         mBottomNavigationView.setSelectedItemId(R.id.mainActivity);
@@ -85,9 +92,8 @@ public class EvaluationActivity extends AppCompatActivity {
 
         }
 
-       // codeScanned= findViewById(R.id.code_Scanned);
-        String codeReceived=getIntent().getStringExtra("codeSent");
-        //codeScanned.setText(codeReceived);
+
+
     }
 
 
@@ -98,6 +104,7 @@ public class EvaluationActivity extends AppCompatActivity {
 
         mCodeScannerView=findViewById(R.id.scanner_view);
         mCodeScanner= new CodeScanner(this, mCodeScannerView);
+
         mCodeScanner.startPreview();
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
@@ -112,12 +119,14 @@ public class EvaluationActivity extends AppCompatActivity {
 
                         String resultat =result.getText();
                         codeScanned++;
+                        codeCounted.setText(String.valueOf(codeScanned));
+                        System.out.println("nombre de qr scannés "+codeScanned);
                         String codeStr= String.valueOf(codeScanned);
-                        Intent intent = new Intent(EvaluationActivity.this, ScannedInformation.class);
-                        intent.putExtra("keyResult", resultat);
-                        intent.putExtra("codeSent", codeStr);
-
-                        startActivity(intent);
+                       // Intent intent = new Intent(EvaluationActivity.this, ScannedInformation.class);
+                       // intent.putExtra("keyResult", resultat);
+                       // intent.putExtra("codeSent", codeStr);
+                        mCodeScanner.startPreview();
+                        //startActivity(intent);
 
                         //Toast.makeText(MainActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
                     }
