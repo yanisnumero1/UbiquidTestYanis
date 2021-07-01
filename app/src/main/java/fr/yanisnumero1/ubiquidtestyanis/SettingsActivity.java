@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -15,6 +17,7 @@ import java.util.TimerTask;
 public class SettingsActivity extends AppCompatActivity {
 
     Timer timer;
+    private Button buttonTest;
 
     BottomNavigationView mBottomNavigationView;
     @Override
@@ -22,16 +25,18 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        //timer
-        timer= new Timer();
-        timer.schedule(new TimerTask() {
+        buttonTest= findViewById(R.id.buttonTest);
+
+        buttonTest.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+            public void onClick(View v) {
+                Intent intent= new Intent(SettingsActivity.this, MainActivity.class);
                 startActivity(intent);
-                finish();
             }
-        }, 15000);
+        });
+
+
+
 
 
 

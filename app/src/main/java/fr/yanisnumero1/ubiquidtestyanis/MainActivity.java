@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         mBottomNavigationView=findViewById(R.id.bottom_nav);
         mBottomNavigationView.setSelectedItemId(R.id.mainActivity);
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
