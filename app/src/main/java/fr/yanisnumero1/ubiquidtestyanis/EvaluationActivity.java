@@ -131,7 +131,7 @@ public class EvaluationActivity extends AppCompatActivity {
             @Override
             public void onDecoded(@NonNull Result result) {
 
-
+            // TODO liste qui stockent resultat et autoriser scan si resultat non compris dans la liste
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
