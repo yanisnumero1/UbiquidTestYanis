@@ -72,8 +72,6 @@ public class EvaluationActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.settings_fgt:
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;
@@ -100,6 +98,7 @@ public class EvaluationActivity extends AppCompatActivity {
         startTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v("Chrono", "bouton lancer le test pressé, lance le chrono");
                 codeCounted.setText("0");
                 countDownTimer.start();
 

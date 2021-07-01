@@ -12,10 +12,7 @@ import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class SettingsActivity extends AppCompatActivity {
+public class ResultRateActivity extends AppCompatActivity {
 
 
     private Button buttonTest;
@@ -33,7 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.v("Test", "lancement du test d'évaluation");
 
-                Intent intent= new Intent(SettingsActivity.this, EvaluationActivity.class);
+                Intent intent= new Intent(ResultRateActivity.this, EvaluationActivity.class);
                 //envoyer intent avec clé à true
                 startActivity(intent);
             }

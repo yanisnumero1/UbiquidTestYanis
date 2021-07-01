@@ -22,7 +22,7 @@
         tools:layout="@layout/activity_scanned_information" />
     <activity
         android:id="@+id/settingsActivity"
-        android:name="fr.yanisnumero1.ubiquidtestyanis.SettingsActivity"
+        android:name="fr.yanisnumero1.ubiquidtestyanis.ResultRateActivity"
         android:label="activity_settings"
         tools:layout="@layout/activity_settings" />
 

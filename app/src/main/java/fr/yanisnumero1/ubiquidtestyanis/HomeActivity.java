@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.homeActivity:
                         return true;
                     case R.id.settings_fgt:
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                        startActivity(new Intent(getApplicationContext(), EvaluationActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                 }

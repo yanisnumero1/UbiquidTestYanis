@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UbiquidTestYanis">
         <activity android:name=".EvaluationActivity"></activity>
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".ResultRateActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
