@@ -18,8 +18,8 @@
 
     <com.budiyev.android.codescanner.CodeScannerView
         android:id="@+id/scanner_view"
-        android:layout_width="418dp"
-        android:layout_height="518dp"
+        android:layout_width="398dp"
+        android:layout_height="533dp"
         android:layout_marginTop="4dp"
         app:autoFocusButtonColor="@android:color/holo_blue_dark"
         app:autoFocusButtonVisible="true"

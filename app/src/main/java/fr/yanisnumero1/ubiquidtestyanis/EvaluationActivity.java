@@ -90,7 +90,7 @@ public class EvaluationActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                chrono.setText("time finish");
+                chrono.setText("test fini");
                 Toast.makeText(EvaluationActivity.this, "Evaluation terminée", Toast.LENGTH_SHORT).show();
                 // TODO: intent qui renvois à une page d'évaluation étoiles
 
@@ -100,13 +100,14 @@ public class EvaluationActivity extends AppCompatActivity {
         startTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                codeCounted.setText("0");
                 countDownTimer.start();
                 Toast.makeText(EvaluationActivity.this, "demarrage du chrono", Toast.LENGTH_SHORT).show();
 
             }
         });
 
-        // scanning
+        // permission for camera
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA},123 );
         } else{
@@ -117,7 +118,6 @@ public class EvaluationActivity extends AppCompatActivity {
 
 
     }
-
 
 
 
