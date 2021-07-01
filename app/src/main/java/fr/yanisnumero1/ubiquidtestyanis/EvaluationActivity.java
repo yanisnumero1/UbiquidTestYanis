@@ -118,6 +118,7 @@ public class EvaluationActivity extends AppCompatActivity {
                         Log.v("Scan", "Un code a été détecté");
 
                         String resultat =result.getText();
+                        System.out.println(resultat);
                         codeScanned++;
                         codeCounted.setText(String.valueOf(codeScanned));
                         System.out.println("nombre de qr scannés "+codeScanned);
