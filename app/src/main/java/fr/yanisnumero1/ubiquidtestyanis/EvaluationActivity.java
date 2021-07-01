@@ -6,7 +6,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -24,7 +23,7 @@ import com.google.zxing.Result;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class EvaluationActivity extends AppCompatActivity {
 
     private CodeScanner mCodeScanner;
     private CodeScannerView mCodeScannerView;
@@ -35,9 +34,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+     // timer= new Timer();
+     // timer.schedule(new TimerTask() {
+     //     @Override
+     //     public void run() {
+     //         Log.v("Timer", "Fermeture du scan après 15 secondes");
+     //         Intent intent = new Intent(MainActivity.this, ScannedInformation.class);
+     //         startActivity(intent);
+     //         finish();
+     //     }
+     // }, 15000);
 
-
-
+        codeScanned=0;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -52,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()){
                     case R.id.mainActivity:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.homeActivity:
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
@@ -74,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
             startScanning();
 
         }
+
+       // codeScanned= findViewById(R.id.code_Scanned);
+        String codeReceived=getIntent().getStringExtra("codeSent");
+        //codeScanned.setText(codeReceived);
     }
 
 
@@ -97,9 +111,11 @@ public class MainActivity extends AppCompatActivity {
                         Log.v("Scan", "Un code a été détecté");
 
                         String resultat =result.getText();
-                        Intent intent = new Intent(MainActivity.this, ScannedInformation.class);
+                        codeScanned++;
+                        String codeStr= String.valueOf(codeScanned);
+                        Intent intent = new Intent(EvaluationActivity.this, ScannedInformation.class);
                         intent.putExtra("keyResult", resultat);
-
+                        intent.putExtra("codeSent", codeStr);
 
                         startActivity(intent);
 

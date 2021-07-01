@@ -15,8 +15,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class ScannedInformation extends AppCompatActivity {
 
     private TextView infoScanned;
-
     BottomNavigationView mBottomNavigationView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class ScannedInformation extends AppCompatActivity {
 
 
         String result = getIntent().getStringExtra("keyResult");
+
 
         infoScanned.setText(result);
 
