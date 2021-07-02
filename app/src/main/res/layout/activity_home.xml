@@ -4,46 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A9A9A9"
+    android:background="@color/blue"
     tools:context=".HomeActivity">
 
     <ImageView
         android:id="@+id/logoUbiquid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toEndOf="@+id/welcome_msg"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="@+id/welcome_msg"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_msg"
+        android:layout_width="187dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ubiquidimg" />
 
     <TextView
         android:id="@+id/welcome_msg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_width="293dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="60dp"
         android:text="@string/home_message"
         android:textAlignment="center"
-        android:textColor="@color/blue"
-        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/logoUbiquid"
+        app:layout_constraintStart_toStartOf="@+id/logoUbiquid"
+        app:layout_constraintTop_toBottomOf="@+id/logoUbiquid" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="424dp"
+        android:background="@drawable/bottom_background_lightblue"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
-    <TextView
-        android:id="@+id/info_msg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/info_message"
-        android:textAlignment="center"
-        android:textColor="@color/blue"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/logoUbiquid"
-        app:layout_constraintTop_toBottomOf="@+id/logoUbiquid" />
+        <TextView
+            android:id="@+id/info_msg"
+            android:layout_width="287dp"
+            android:layout_height="131dp"
+            android:text="@string/info_message"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="46dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -53,7 +65,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="612dp"
-        app:menu="@menu/bottom_nav"/>
+        app:menu="@menu/bottom_nav"
+        tools:layout_editor_absoluteY="612dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
