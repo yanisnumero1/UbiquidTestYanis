@@ -48,11 +48,8 @@ public class EvaluationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_evaluation);
 
         codeScanned = 0;
-
         chrono = findViewById(R.id.timer);
         startTest = findViewById(R.id.startEval);
-
-
         codeCounted = findViewById(R.id.code_counter);
         codeCounted.setText("0");
 
@@ -160,7 +157,7 @@ public class EvaluationActivity extends AppCompatActivity {
                 });
             }
         });
-
+        // touch the screen to set the scan again
         mCodeScannerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,6 +168,7 @@ public class EvaluationActivity extends AppCompatActivity {
 
     }
 
+    // permission for first app openning
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -184,6 +182,7 @@ public class EvaluationActivity extends AppCompatActivity {
         }
     }
 
+    // add to list if data not scaned yet
     private void addingData(String data) {
 
         if (!listResult.containsValue(data)) {

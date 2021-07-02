@@ -1,6 +1,6 @@
 package fr.yanisnumero1.ubiquidtestyanis;
 
-import androidx.annotation.NonNull;
+import git adandroidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;

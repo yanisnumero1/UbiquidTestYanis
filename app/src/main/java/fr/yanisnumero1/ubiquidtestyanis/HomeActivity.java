@@ -18,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //nav bar implementation
         mBottomNavigationView=findViewById(R.id.bottom_nav);
         mBottomNavigationView.setSelectedItemId(R.id.homeActivity);
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
