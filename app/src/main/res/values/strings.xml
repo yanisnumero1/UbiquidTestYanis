@@ -3,7 +3,7 @@
     <string name="home_message">Bienvenue dans votre QrCode Scanner</string>
     <string name="info_message">Rendez vous dans réglages pour tester et noter la reconnaissance de flashcode</string>
     <string name="scan_done">Flashcodes uniques décodés:</string>
-    <string name="scan_passed">Scans réussis dans le temps imparti :</string>
+    <string name="scan_passed">Scans uniques dans le temps imparti :</string>
     <string name="send_note">Envoyer</string>
     <string name="user_rating">Notez la session de scan:</string>
     <string name="time">Temps restant</string>

@@ -28,21 +28,16 @@ public class MainActivity extends AppCompatActivity {
 
     private CodeScanner mCodeScanner;
     private CodeScannerView mCodeScannerView;
-    private int codeScanned;
-    Timer timer;
+    private BottomNavigationView mBottomNavigationView;
 
-    BottomNavigationView mBottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // navbar implementation
-        mBottomNavigationView=findViewById(R.id.bottom_nav);
+        mBottomNavigationView = findViewById(R.id.bottom_nav);
         mBottomNavigationView.setSelectedItemId(R.id.mainActivity);
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -50,16 +45,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.mainActivity:
                         return true;
                     case R.id.homeActivity:
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.settings_fgt:
                         startActivity(new Intent(getApplicationContext(), EvaluationActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -68,22 +63,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         // scanning
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA},123 );
-        } else{
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 123);
+        } else {
             startScanning();
 
         }
     }
 
 
-
-
     private void startScanning() {
         Log.v("Scan", "Scan lancé");
 
-        mCodeScannerView=findViewById(R.id.scanner_view);
-        mCodeScanner= new CodeScanner(this, mCodeScannerView);
+        mCodeScannerView = findViewById(R.id.scanner_view);
+        mCodeScanner = new CodeScanner(this, mCodeScannerView);
         mCodeScanner.startPreview();
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
@@ -96,14 +89,14 @@ public class MainActivity extends AppCompatActivity {
 
                         Log.v("Scan", "Un code a été détecté");
 
-                        String resultat =result.getText();
+                        String resultat = result.getText();
                         Intent intent = new Intent(MainActivity.this, ScannedInformation.class);
                         intent.putExtra("keyResult", resultat);
 
 
                         startActivity(intent);
 
-                        //Toast.makeText(MainActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
+
                     }
                 });
             }
@@ -120,13 +113,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,@NonNull String[] permissions,@NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == 123){
-            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(this,"Permission Autorisée", Toast.LENGTH_SHORT).show();
+        if (requestCode == 123) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permission Autorisée", Toast.LENGTH_SHORT).show();
                 startScanning();
-            }else{
+            } else {
                 Toast.makeText(this, "Permission refusée", Toast.LENGTH_SHORT).show();
             }
         }
