@@ -23,6 +23,9 @@ import com.budiyev.android.codescanner.DecodeCallback;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.zxing.Result;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -143,7 +146,19 @@ public class EvaluationActivity extends AppCompatActivity {
 
                         Log.v("Scan", "Un code a été détecté");
 
-                        String resultat =result.getText();
+                      // ArrayList<String>strResult= new ArrayList<>();
+                      // Iterator<String> iterator= strResult.iterator();
+                      //
+                      // String resultat =result.getText();
+                      //
+                      // while(iterator.hasNext() && strResult.contains(resultat)){
+                      //
+                      // }
+                      // strResult.add(resultat);
+
+                        //inserer dans liste
+                        // if resultat pas compris dans liste
+                        // autorisé operations suivantes
                         codeScanned++;
                         codeCounted.setText(String.valueOf(codeScanned));
 

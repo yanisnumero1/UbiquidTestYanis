@@ -22,6 +22,12 @@ public class ScannedInformation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanned_information);
 
+        infoScanned= findViewById(R.id.infosScanned);
+        String result = getIntent().getStringExtra("keyResult");
+        infoScanned.setText(result);
+
+
+        // nav bar implementation
         mBottomNavigationView=findViewById(R.id.bottom_nav);
         mBottomNavigationView.setSelectedItemId(R.id.homeActivity);
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -47,13 +53,7 @@ public class ScannedInformation extends AppCompatActivity {
             }
         });
 
-        infoScanned= findViewById(R.id.infosScanned);
 
-
-        String result = getIntent().getStringExtra("keyResult");
-
-
-        infoScanned.setText(result);
 
 
 
