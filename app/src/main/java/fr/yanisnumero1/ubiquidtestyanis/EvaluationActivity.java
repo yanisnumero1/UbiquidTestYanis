@@ -107,6 +107,7 @@ public class EvaluationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.v("Chrono", "bouton lancer le test pressé, lance le chrono");
+                codeScanned=0;
                 codeCounted.setText("0");
                 countDownTimer.start();
 
